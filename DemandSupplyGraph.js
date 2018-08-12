@@ -96,6 +96,33 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
 	yAxisArrowHead1.setAttribute('style', "stroke:" + COLOR + ";stroke-width:" + STROKE_WIDTH);
 	demandSupply_SvgGraph.append(yAxisArrowHead1);
 
+  //Axial labels
+  var xAxisLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  xAxisLabel.setAttribute('x', node2X + 0.5 * MARGIN_FRACTION_AXES * actualLength);
+	xAxisLabel.setAttribute('y', node1Y + 0.5 * MARGIN_FRACTION_AXES * actualLength);
+	xAxisLabel.setAttribute('text-anchor', 'end');
+	xAxisLabel.setAttribute('dominant-baseline', 'central');
+	xAxisLabel.setAttribute('class', "editable");
+  xAxisLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
+	xAxisLabel.onclick = function(){
+		demandSupplyTextClicked(self);
+	};
+	xAxisLabel.textContent = "Qty of";
+	demandSupply_SvgGraph.append(xAxisLabel);
+
+  var yAxisLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  yAxisLabel.setAttribute('x', node0X - 0.5 * MARGIN_FRACTION_AXES * actualLength);
+	yAxisLabel.setAttribute('y', node0Y - 0.5 * MARGIN_FRACTION_AXES * actualLength);
+	yAxisLabel.setAttribute('text-anchor', 'start');
+	yAxisLabel.setAttribute('dominant-baseline', 'central');
+	yAxisLabel.setAttribute('class', "editable");
+  yAxisLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
+	yAxisLabel.onclick = function(){
+		demandSupplyTextClicked(self);
+	};
+	yAxisLabel.textContent = "Price of";
+	demandSupply_SvgGraph.append(yAxisLabel);
+
   //Drawing the lines
   let noOfDemandLines = (function(){
     if(demandShift === 0)
