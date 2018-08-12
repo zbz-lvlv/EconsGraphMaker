@@ -1,0 +1,82 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <style>
+    .full-height{
+      height: calc(100vh - 56px);
+    }
+
+    .no-margin{
+      margin: 0;
+    }
+
+    .no-padding{
+      padding: 0;
+    }
+
+    .label-instructions{
+      position: absolute;
+      width: 90%;
+      left: 5%;
+      text-align: center;
+    }
+
+    .button-export{
+      /*Width = full width of right side bar minus two times a side margin*/
+      width: 90%;
+      position: absolute;
+      bottom: 8px;
+      left: 5%;
+    }
+
+  </style>
+
+</head>
+
+<body class="full-height no-margin">
+
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Economics Graph Maker&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <br> </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Feedback</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row full-height no-margin">
+
+    <div id="svg_graph_wrapper" class="col-md-10 no-padding">
+      <svg id="demand_supply_svg_graph" style="position: absolute;">
+
+      </svg>
+    </div>
+
+    <div class="col-md-2 no-padding" style="position: relative;">
+      <p class="text-secondary label-instructions">Click on the labels to edit the text on them</p>
+      <div class="button-export">
+        <button class="btn btn-success btn-block btn-lg">Export Graph</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <script src="DemandSupplyGraph.js"></script>
+
+</body>
+
+</html>

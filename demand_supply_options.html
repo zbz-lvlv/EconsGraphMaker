@@ -1,0 +1,210 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"></link>
+
+  <style>
+
+    .demand-button-clicked{
+      background: #007BFF;
+      color: white;
+    }
+
+    .supply-button-clicked{
+      background: #DC3545;
+      color: white;
+    }
+
+    .line-label{
+      font-size: 28px;
+      text-align: center;
+      color: #343A40;
+    }
+
+    .large-font{
+      font-size: 30px;
+    }
+
+    .full-width{
+      width: 100%;
+    }
+
+    .no-margin{
+      margin: 0;
+    }
+
+    .no-padding{
+      padding: 0;
+    }
+
+    .up-margin-10{
+      margin-top: 10;
+    }
+
+    .down-margin-5{
+      margin-bottom: 5;
+    }
+
+    .down-margin-20-only{
+      margin: 0px 0px 20px 0px;
+    }
+
+    .down-margin-20{
+      margin-bottom: 20px;
+    }
+
+    .down-margin-50-only{
+      margin: 0px 0px 50px 0px;
+    }
+
+    .slidecontainer {
+      width: 100%; /* Width of the outside container */
+    }
+
+    /* The slider itself */
+    .slider-demand {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 25px; /* Specified height */
+        background: transparent; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .slider-demand:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider-demand::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #007BFF; /* Primary background */
+        cursor: pointer; /* Cursor on hover */
+    }
+
+    .slider-demand::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #007BFF; /* Primary background */
+        cursor: pointer; /* Cursor on hover */
+    }
+
+    /* The slider itself */
+    .slider-supply {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 25px; /* Specified height */
+        background: transparent; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .slider-supply:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider-supply::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #DC3545; /* Primary background */
+        cursor: pointer; /* Cursor on hover */
+    }
+
+    .slider-supply::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #DC3545; /* Primary background */
+        cursor: pointer; /* Cursor on hover */
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="d-flex flex-column no-margin no-padding">
+
+    <h3 class="line-label full-width up-margin-10 down-margin-20 text-secondary">Create Your Demand Supply Graph</h3>
+
+    <p class="line-label full-width down-margin-5 text-primary">DEMAND CHANGES</p>
+    <div class="row down-margin-20-only">
+      <div class="col-md-2 no-margin no-padding"></div>
+      <div id="button_group_demand" class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
+        <button type="button" id="button_demand_fall_lot" class="btn full-width btn-outline-primary">Fall a lot</button>
+        <button type="button" id="button_demand_fall_little" class="btn full-width btn-outline-primary">Fall a little</button>
+        <button type="button" id="button_demand_no_shift" class="btn full-width btn-outline-primary">No shifts</button>
+        <button type="button" id="button_demand_rise_little" class="btn full-width btn-outline-primary">Rise a little</button>
+        <button type="button" id="button_demand_rise_lot" class="btn full-width btn-outline-primary">Rise a lot</button>
+      </div>
+      <div class="col-md-2 no-margin no-padding"></div>
+    </div>
+
+    <p class="line-label full-width down-margin-5 text-primary">PRICE ELASTICITY OF DEMAND</p>
+    <div class="row down-margin-50-only">
+      <div class="col-md-2"></div>
+        <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
+          <div class="slidecontainer no-margin no-padding">
+            <input type="range" min="-4" max="4" value="0" class="slider-demand" id="range_ped"></input>
+          </div>
+        </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <p class="line-label full-width down-margin-5 text-danger">SUPPLY CHANGES</p>
+    <div class="row down-margin-20-only">
+      <div class="col-md-2 no-margin no-padding"></div>
+      <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
+        <button type="button" id="button_supply_fall_lot" class="btn full-width btn-outline-danger">Fall a lot</button>
+        <button type="button" id="button_supply_fall_little" class="btn full-width btn-outline-danger">Fall a little</button>
+        <button type="button" id="button_supply_no_shift" class="btn full-width btn-outline-danger">No shifts</button>
+        <button type="button" id="button_supply_rise_little" class="btn full-width btn-outline-danger">Rise a little</button>
+        <button type="button" id="button_supply_rise_lot" class="btn full-width btn-outline-danger">Rise a lot</button>
+      </div>
+      <div class="col-md-2 no-margin no-padding"></div>
+    </div>
+
+    <p class="line-label full-width down-margin-5 text-danger">PRICE ELASTICITY OF SUPPLY</p>
+    <div class="row down-margin-50-only">
+      <div class="col-md-2"></div>
+        <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
+          <div class="slidecontainer no-margin no-padding">
+            <input type="range" min="-4" max="4" value="0" class="slider-supply" id="range_pes"></input>
+          </div>
+        </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="row down-margin-50-only">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button type="button" id="button_create_graph" class="btn btn-success btn-lg full-width large-font">Create Graph</button>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <script src="DemandSupplyOptions.js"></script>
+
+</body>
+
+</html>
