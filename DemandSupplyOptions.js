@@ -24,6 +24,11 @@ let demandSupply_PESSlider = $("#range_pes");
 
 let demandSupply_ButtonCreateGraph = $("#button_create_graph");
 
+localStorage.setItem("demandSupply_DemandChanges", '0');
+localStorage.setItem("demandSupply_SupplyChanges", '0');
+localStorage.setItem("demandSupply_PED", '0');
+localStorage.setItem("demandSupply_PES", '0');
+
 demandSupply_DemandButtonFallLot.click(function() {
   demandSupply_DemandChanges = -2;
   localStorage.setItem("demandSupply_DemandChanges", demandSupply_DemandChanges);
@@ -75,9 +80,10 @@ demandSupply_DemandButtonRiseLot.click(function() {
   demandSupply_DemandButtonRiseLot.addClass("demand-button-clicked");
 });
 
-demandSupply_PEDSlider.oninput = function() {
+demandSupply_PEDSlider.on('input', function() {
   demandSupply_PED = this.value;
-}
+  localStorage.setItem("demandSupply_PED", demandSupply_PED);
+});
 
 demandSupply_SupplyButtonFallLot.click(function() {
   demandSupply_SupplyChanges = -2;
@@ -131,9 +137,10 @@ demandSupply_SupplyButtonRiseLot.click(function() {
   demandSupply_SupplyButtonRiseLot.addClass("supply-button-clicked");
 });
 
-demandSupply_PESSlider.oninput = function() {
+demandSupply_PESSlider.on('input', function() {
   demandSupply_PES = this.value;
-}
+  localStorage.setItem("demandSupply_PES", demandSupply_PES);
+});
 
 demandSupply_ButtonCreateGraph.click(function() {
   window.location.href = "demand_supply_graph.html";
