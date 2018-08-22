@@ -61,6 +61,14 @@
       width: 100%; /* Width of the outside container */
     }
 
+    .background-demand{
+      background: #CCE5FF;
+    }
+
+    .background-supply{
+      background: #FFD0D0;
+    }
+
     /* The slider itself */
     .slider-demand {
         -webkit-appearance: none;  /* Override default CSS styles */
@@ -90,6 +98,7 @@
     }
 
     .slider-demand::-moz-range-thumb {
+        appearance: none;
         width: 25px; /* Set a specific slider handle width */
         height: 25px; /* Slider handle height */
         background: #007BFF; /* Primary background */
@@ -158,7 +167,7 @@
     <div class="row down-margin-50-only">
       <div class="col-md-2"></div>
         <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
-          <div class="slidecontainer no-margin no-padding">
+          <div class="slidecontainer background-demand no-margin no-padding">
             <input type="range" min="-4" max="4" value="0" class="slider-demand" id="range_ped"></input>
           </div>
         </div>
@@ -182,7 +191,7 @@
     <div class="row down-margin-50-only">
       <div class="col-md-2"></div>
         <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
-          <div class="slidecontainer no-margin no-padding">
+          <div class="slidecontainer background-supply no-margin no-padding">
             <input type="range" min="-4" max="4" value="0" class="slider-supply" id="range_pes"></input>
           </div>
         </div>

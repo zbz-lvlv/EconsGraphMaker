@@ -107,7 +107,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
 	zeroLabel.setAttribute('class', "editable");
   zeroLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
 	zeroLabel.onclick = function(){
-		demandSupplyTextClicked(zeroLabel);
+		demandSupplyTextClicked(this);
 	};
 	zeroLabel.textContent = "0";
 	demandSupply_SvgGraph.append(zeroLabel);
@@ -121,7 +121,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
 	xAxisLabel.setAttribute('class', "editable");
   xAxisLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
 	xAxisLabel.onclick = function(){
-		demandSupplyTextClicked(xAxisLabel);
+		demandSupplyTextClicked(this);
 	};
 	xAxisLabel.textContent = "Qty of";
 	demandSupply_SvgGraph.append(xAxisLabel);
@@ -134,7 +134,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
 	yAxisLabel.setAttribute('class', "editable");
   yAxisLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
 	yAxisLabel.onclick = function(){
-		demandSupplyTextClicked(yAxisLabel);
+		demandSupplyTextClicked(this);
 	};
 	yAxisLabel.textContent = "Price of";
 	demandSupply_SvgGraph.append(yAxisLabel);
@@ -199,7 +199,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
     ddLabel.setAttribute('class', "editable");
     ddLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
     ddLabel.onclick = function(){
-      demandSupplyTextClicked(ddLabel);
+      demandSupplyTextClicked(this);
     };
 
     //Demand increase. D2 to the right of D1.
@@ -250,7 +250,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
     ssLabel.setAttribute('class', "editable");
     ssLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
     ssLabel.onclick = function(){
-      demandSupplyTextClicked(ssLabel);
+      demandSupplyTextClicked(this);
     };
 
     //Demand increase. D2 to the right of D1.
@@ -308,7 +308,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
     quantityLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
     quantityLabel.textContent = "Q";
     quantityLabel.onclick = function(){
-      demandSupplyTextClicked(quantityLabel);
+      demandSupplyTextClicked(this);
     };
     demandSupply_SvgGraph.append(quantityLabel);
 
@@ -329,7 +329,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
     priceLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
     priceLabel.textContent = "P";
     priceLabel.onclick = function(){
-      demandSupplyTextClicked(priceLabel);
+      demandSupplyTextClicked(this);
     };
     demandSupply_SvgGraph.append(priceLabel);
 
@@ -355,7 +355,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
       quantityLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
       quantityLabel.textContent = "Q";
       quantityLabel.onclick = function(){
-        demandSupplyTextClicked(quantityLabel);
+        demandSupplyTextClicked(this);
       };
       demandSupply_SvgGraph.append(quantityLabel);
     }
@@ -378,7 +378,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
       priceLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
       priceLabel.textContent = "P";
       priceLabel.onclick = function(){
-        demandSupplyTextClicked(priceLabel);
+        demandSupplyTextClicked(this);
       };
       demandSupply_SvgGraph.append(priceLabel);
     }
@@ -394,7 +394,7 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
       eqmLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
       eqmLabel.textContent = "E" + intersections[i].index;
       eqmLabel.onclick = function(){
-        demandSupplyTextClicked(eqmLabel);
+        demandSupplyTextClicked(this);
       };
       demandSupply_SvgGraph.append(eqmLabel);
 
@@ -416,9 +416,10 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
         quantityLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
         quantityLabel.textContent = "Q" + intersections[i].index;
         quantityLabel.onclick = function(){
-          demandSupplyTextClicked(quantityLabel);
+          demandSupplyTextClicked(this);
         };
         demandSupply_SvgGraph.append(quantityLabel);
+
       }
 
       if(intersections[0].y != intersections[1].y){
@@ -439,9 +440,10 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
         priceLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
         priceLabel.textContent = "P" + intersections[i].index;
         priceLabel.onclick = function(){
-          demandSupplyTextClicked(priceLabel);
+          demandSupplyTextClicked(this);
         };
         demandSupply_SvgGraph.append(priceLabel);
+
       }
 
     }
