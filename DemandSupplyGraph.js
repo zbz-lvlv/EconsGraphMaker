@@ -1,5 +1,6 @@
 let demandSupply_SvgGraph = $("#demand_supply_svg_graph");
 let demandSupply_Attributes = $("#demand_supply_attributes");
+let demandSupply_ExportGraphButton = $("#button_create_graph");
 
 demandSupply_Attributes.load("demand_supply_attributes_starting.html");
 
@@ -567,3 +568,34 @@ demandSupplyGraphDraw(
   localStorage.getItem("demandSupply_SupplyChanges"),
   localStorage.getItem("demandSupply_PED"),
   localStorage.getItem("demandSupply_PES"));
+
+$("#export_graph_png").click(function() {
+
+	//Load a svg snippet in the canvas with id = 'svgGraph'
+	let graphCanvas = document.createElement('canvas');
+	graphCanvas.width = 960;//window.screen.availWidth * 8 / 12
+	graphCanvas.height = 714;//window.screen.availHeight - (window.outerHeight - window.innerHeight) - TOP_BAR_HEIGHT;
+
+	let svg = document.getElementById('demand_supply_svg_graph');
+	let xmlSerializer = new XMLSerializer();
+	let svg_xml = xmlSerializer.serializeToString(svg);
+
+	// write serialized svg to canvas
+	canvg(graphCanvas, svg_xml, {useCORS: true});
+
+	download(graphCanvas.toDataURL('image/png'));
+
+});
+
+function download(filename) {
+    var element = document.createElement('a');
+    element.setAttribute('href', filename);
+    element.setAttribute('download', "demand_supply_graph.png");
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}

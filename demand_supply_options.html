@@ -57,89 +57,6 @@
       margin: 0px 0px 50px 0px;
     }
 
-    .slidecontainer {
-      width: 100%; /* Width of the outside container */
-    }
-
-    .background-demand{
-      background: #CCE5FF;
-    }
-
-    .background-supply{
-      background: #FFD0D0;
-    }
-
-    /* The slider itself */
-    .slider-demand {
-        -webkit-appearance: none;  /* Override default CSS styles */
-        appearance: none;
-        width: 100%; /* Full-width */
-        height: 25px; /* Specified height */
-        background: transparent; /* Grey background */
-        outline: none; /* Remove outline */
-        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-        transition: opacity .2s;
-    }
-
-    /* Mouse-over effects */
-    .slider-demand:hover {
-        opacity: 1; /* Fully shown on mouse-over */
-    }
-
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    .slider-demand::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
-        width: 25px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: #007BFF; /* Primary background */
-        cursor: pointer; /* Cursor on hover */
-    }
-
-    .slider-demand::-moz-range-thumb {
-        appearance: none;
-        width: 25px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: #007BFF; /* Primary background */
-        cursor: pointer; /* Cursor on hover */
-    }
-
-    /* The slider itself */
-    .slider-supply {
-        -webkit-appearance: none;  /* Override default CSS styles */
-        appearance: none;
-        width: 100%; /* Full-width */
-        height: 25px; /* Specified height */
-        background: transparent; /* Grey background */
-        outline: none; /* Remove outline */
-        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-        transition: opacity .2s;
-    }
-
-    /* Mouse-over effects */
-    .slider-supply:hover {
-        opacity: 1; /* Fully shown on mouse-over */
-    }
-
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    .slider-supply::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
-        width: 25px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: #DC3545; /* Primary background */
-        cursor: pointer; /* Cursor on hover */
-    }
-
-    .slider-supply::-moz-range-thumb {
-        width: 25px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: #DC3545; /* Primary background */
-        cursor: pointer; /* Cursor on hover */
-    }
-
   </style>
 
 </head>
@@ -163,15 +80,21 @@
       <div class="col-md-2 no-margin no-padding"></div>
     </div>
 
-    <p class="line-label full-width down-margin-5 text-primary">PRICE ELASTICITY OF DEMAND</p>
+    <p class="line-label full-width down-margin-5 text-primary">PRICE ELASTICITY OF DEMAND (line angle)</p>
     <div class="row down-margin-50-only">
-      <div class="col-md-2"></div>
-        <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
-          <div class="slidecontainer background-demand no-margin no-padding">
-            <input type="range" min="-4" max="4" value="0" class="slider-demand" id="range_ped"></input>
-          </div>
-        </div>
-      <div class="col-md-2"></div>
+      <div class="col-md-2 no-margin no-padding"></div>
+      <div id="button_group_ped" class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
+        <button type="button" id="button_ped_M4" class="btn full-width btn-outline-primary">Vert.</button>
+        <button type="button" id="button_ped_M3" class="btn full-width btn-outline-primary"></button>
+        <button type="button" id="button_ped_M2" class="btn full-width btn-outline-primary">-67.5</button>
+        <button type="button" id="button_ped_M1" class="btn full-width btn-outline-primary"></button>
+        <button type="button" id="button_ped_0" class="btn full-width btn-outline-primary">-45.0</button>
+        <button type="button" id="button_ped_P1" class="btn full-width btn-outline-primary"></button>
+        <button type="button" id="button_ped_P2" class="btn full-width btn-outline-primary">-22.5</button>
+        <button type="button" id="button_ped_P3" class="btn full-width btn-outline-primary"></button>
+        <button type="button" id="button_ped_P4" class="btn full-width btn-outline-primary">Hori.</button>
+      </div>
+      <div class="col-md-2 no-margin no-padding"></div>
     </div>
 
     <p class="line-label full-width down-margin-5 text-danger">SUPPLY CHANGES</p>
@@ -187,15 +110,21 @@
       <div class="col-md-2 no-margin no-padding"></div>
     </div>
 
-    <p class="line-label full-width down-margin-5 text-danger">PRICE ELASTICITY OF SUPPLY</p>
+    <p class="line-label full-width down-margin-5 text-danger">PRICE ELASTICITY OF SUPPLY (line angle)</p>
     <div class="row down-margin-50-only">
-      <div class="col-md-2"></div>
-        <div class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
-          <div class="slidecontainer background-supply no-margin no-padding">
-            <input type="range" min="-4" max="4" value="0" class="slider-supply" id="range_pes"></input>
-          </div>
-        </div>
-      <div class="col-md-2"></div>
+      <div class="col-md-2 no-margin no-padding"></div>
+      <div id="button_group_pes" class="col-md-8 btn-group btn-group-lg full-width no-margin no-padding" role="group">
+        <button type="button" id="button_pes_M4" class="btn full-width btn-outline-danger">Vert.</button>
+        <button type="button" id="button_pes_M3" class="btn full-width btn-outline-danger"></button>
+        <button type="button" id="button_pes_M2" class="btn full-width btn-outline-danger">67.5</button>
+        <button type="button" id="button_pes_M1" class="btn full-width btn-outline-danger"></button>
+        <button type="button" id="button_pes_0" class="btn full-width btn-outline-danger">45.0</button>
+        <button type="button" id="button_pes_P1" class="btn full-width btn-outline-danger"></button>
+        <button type="button" id="button_pes_P2" class="btn full-width btn-outline-danger">22.5</button>
+        <button type="button" id="button_pes_P3" class="btn full-width btn-outline-danger"></button>
+        <button type="button" id="button_pes_P4" class="btn full-width btn-outline-danger">Hori.</button>
+      </div>
+      <div class="col-md-2 no-margin no-padding"></div>
     </div>
 
     <div class="row down-margin-50-only">
@@ -208,7 +137,7 @@
 
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
