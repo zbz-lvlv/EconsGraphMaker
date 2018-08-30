@@ -2,6 +2,8 @@ let demandSupply_SvgGraph = $("#demand_supply_svg_graph");
 let demandSupply_Attributes = $("#demand_supply_attributes");
 let demandSupply_ExportGraphButton = $("#button_create_graph");
 
+let demandSupply_FeedbackModal = $("#feedback_modal");
+
 demandSupply_Attributes.load("demand_supply_attributes_starting.html");
 
 function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
@@ -584,6 +586,8 @@ $("#export_graph_png").click(function() {
 	canvg(graphCanvas, svg_xml, {useCORS: true});
 
 	download(graphCanvas.toDataURL('image/png'));
+
+  demandSupply_FeedbackModal.modal()
 
 });
 
