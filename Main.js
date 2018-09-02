@@ -19,7 +19,7 @@ var isChrome = !!window.chrome && !!window.chrome.webstore;
 // Blink engine detection
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
-if(isOpera || isIE || isEdge || isBlink){
+if(!isChrome && !isSafari && !isFirefox){
   alert("Please use Chrome, Firefox or Safari for the website to work properly.");
 }
 
