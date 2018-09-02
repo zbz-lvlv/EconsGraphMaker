@@ -20,7 +20,7 @@ var isChrome = !!window.chrome && !!window.chrome.webstore;
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
 if(!isChrome && !isSafari && !isFirefox){
-  alert("Please use Chrome, Firefox or Safari for the website to work properly.");
+  alert("Please use Chrome, Firefox or Safari on a computer for the website to work properly.");
 }
 
 let graphTypeOptions = $("#graph_type_options");

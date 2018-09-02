@@ -294,6 +294,19 @@ function demandSupplyGraphDraw(demandShift, supplyShift, ped, pes){
 
   if(intersections.length === 1){
 
+    var eqmLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    eqmLabel.setAttribute('x', intersections[0].x + 10);
+    eqmLabel.setAttribute('y', intersections[0].y);
+    eqmLabel.setAttribute('text-anchor', 'start');
+    eqmLabel.setAttribute('dominant-baseline', 'central');
+    eqmLabel.setAttribute('class', "editable");
+    eqmLabel.setAttribute('style', "fill: " + COLOR + "; font-size: " + '22px' + ";");
+    eqmLabel.textContent = "E";
+    eqmLabel.onclick = function(){
+      demandSupplyTextClicked(this);
+    };
+    demandSupply_SvgGraph.append(eqmLabel);
+
     var quantityLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     quantityLine.setAttribute('x1', intersections[0].x);
     quantityLine.setAttribute('y1', intersections[0].y);
